@@ -1,0 +1,105 @@
+<h1>Contact Us</h1>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" id="contact-form">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input 
+            formControlName="name"
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter your name"
+            required
+        />
+        @if(myForm.get("name")?.invalid && myForm.get("name")?.touched){
+            <div>
+                Name is required.
+            </div>
+        }
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+            formControlName="email"
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter your email"
+            required
+        />
+        @if(myForm.get("email")?.invalid && myForm.get("email")?.touched){
+            <div>
+                Email is required.
+            </div>
+        }
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea
+            formControlName="message"
+            class="form-control"
+            id="message"
+            rows="4"
+            placeholder="Enter your message, min 5 letters"
+            required></textarea>
+            @if(myForm.get("message")?.invalid && myForm.get("message")?.touched){
+                <div>
+                    Message is required.
+                </div>
+            }
+    </div>
+    <button type="submit" class="btn btn-dark" [disabled]="myForm.invalid">Send</button>
+</form>
+
+<p>
+    @if(myForm.valid){
+        Datos ingresados: {{myForm.get("name")?.value}} - {{myForm.get("email")?.value}} - {{myForm.get("message")?.value}}
+    }
+</p>
+
+<!--
+<form (ngSubmit)="onSubmit()" id="contact-form">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input 
+            [(ngModel)]="consulta.name"
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+        />
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+            [(ngModel)]="consulta.email"
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+        />
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea
+            [(ngModel)]="consulta.message"
+            class="form-control"
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Enter your message"
+            required></textarea>
+    </div>
+    <button type="submit" class="btn btn-dark" [disabled]="!consulta.name || !consulta.email || !consulta.message">Send</button>
+</form>
+
+<p>
+    @if(consulta.name || consulta.email || consulta.message){
+        Datos ingresados: {{consulta.name}} - {{consulta.email}} - {{consulta.message}}
+    }
+</p>
+-->

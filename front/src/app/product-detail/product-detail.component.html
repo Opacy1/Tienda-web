@@ -1,0 +1,24 @@
+
+@if (isInfoLoaded) {
+    <div class="row">
+        <div class="col-md-6">
+            <img [src]="product.images" class="img-fluid rounded" alt="Product Image">
+        
+        </div>
+        <div class="col-md-6">
+            <!-- Product Information -->
+            <h1 class="mb-3">{{product.name}}</h1>
+            <p class="lead">
+                {{product.description}}
+            </p>
+            <p class="lead">
+                Stock del producto: {{product.stock}}
+            </p>
+            <!-- Price and Button -->
+            <div class="d-flex align-items-center">
+                <h3 class="me-4">{{product.price}} €</h3>
+                <button (click)="onProductSelect()" class="btn btn-dark btn-lg">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+}

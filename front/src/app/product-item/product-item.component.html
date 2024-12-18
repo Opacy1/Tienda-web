@@ -1,0 +1,10 @@
+<div class="col-md-4">
+        <div class="card">
+            <img [src]="product.images">
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">{{product.description}}</p>
+                <a routerLink="{{ '/product/' + product.id }}" routerLinkActive="active" class="btn btn-dark">{{viewDetails}}</a>
+            </div>
+</div>
+

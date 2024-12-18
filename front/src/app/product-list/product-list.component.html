@@ -1,0 +1,9 @@
+<h2 class="mb-4">{{titleProduct}}</h2>
+<div class="row">
+
+@for(product of listaProductos; track product){
+    <app-product-item
+    [product]="product"
+    />
+}
+</div>
